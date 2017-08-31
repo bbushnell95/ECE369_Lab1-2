@@ -29,7 +29,25 @@ module ProgramCounter_tb();
 	initial begin
 	
     /* Please fill in the implementation here... */
+	//Case 0: Reset
+	Reset <= 1'b1;
+	#1 Reset <= 1'b0; $display("PCResult = %b", PCResult);
 	
+	//Case 1: 0000 0001
+    Address <= 'h01;
+    #10 $display("PCResult = %h", PCResult); 
+    
+    //Case 2: 0000 AB12
+    Address <= 'h0000AB12;
+    #20 $display("PCResult = %h", PCResult);
+    
+    //Case 3: FFFF FFFF
+    Address <= 'hFFFFFFFF;
+    #20 $display("PCResult = %h", PCResult);
+    
+    //Case 4: Reset #2
+    Reset <= 1'b1;
+    #1 Reset <= 1'b0; $display("PCResult = %h", PCResult);
 	end
 
 endmodule
