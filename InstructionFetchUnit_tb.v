@@ -9,7 +9,7 @@
 
 module InstructionFetchUnit_tb();
 
-	reg [31:0] Instruction;
+    wire [31:0] Instruction;
 	reg Reset, Clk;
 
     InstructionFetchUnit u0(
@@ -33,14 +33,19 @@ module InstructionFetchUnit_tb();
         #10 $display("Instruction Fetched = %h", Instruction); 
         
         //Case 2: Another clock cycle
-        Address <= 'h0000AB12;
         #20 $display("Instruction Fetched = %h", Instruction);
         
         //Case 3: FFFF FFFF
-        Address <= 'hFFFFFFFF;
         #20 $display("Instruction Fetched = %h", Instruction);
         
         //Case 4: Reset #2
-        Reset <= 1'b1;
-        #1 Reset <= 1'b0; $display("PCResult = %h", PCResult);
+        #20 Reset <= 1'b1;
+        #1 Reset <= 1'b0;  $display("Instruction Fetched = %h", Instruction);
+
+        //Case 5: Another clock cycle
+        #20 $display("Instruction Fetched = %h", Instruction);
+        
         end
+        
+        
+endmodule
