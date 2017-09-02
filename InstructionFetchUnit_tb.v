@@ -35,7 +35,7 @@ module InstructionFetchUnit_tb();
         //Case 2: Another clock cycle
         #20 $display("Instruction Fetched = %h", Instruction);
         
-        //Case 3: FFFF FFFF
+        //Case 3: Another clock cycle
         #20 $display("Instruction Fetched = %h", Instruction);
         
         //Case 4: Reset #2
