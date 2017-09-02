@@ -44,18 +44,19 @@ module InstructionMemory(Address, Instruction);
     
     
         /* Please fill in the implementation here */
-    integer i, DecimalEQ; 
+    integer i, DecimalEQ;
     reg [31:0] InstructionBank[0:127];       // All 128 instructions
     
     initial begin                               // Initialize the InstructionBank with arbitrary values
-        for (i=0; i<127; i=i+1) begin
-            InstructionBank[i] <= i[31:0]; 
+        for (i=0; i<128; i=i+1) begin
+            InstructionBank[i] <= i * 4; 
         end
     end
    
     always @ (Address)              // Find the desired address then assign the output to the corresponding instruction
     begin
-        DecimalEQ <= (Address[2]*1) + (Address[3]*2) + (Address[4]*4) + (Address[5]*8) + (Address[6]*16) + (Address[7]*32) + (Address[8]*64); 
+        //Need calculation of InstructionBand index to be blocking
+        DecimalEQ = (Address[2]*1) + (Address[3]*2) + (Address[4]*4) + (Address[5]*8) + (Address[6]*16) + (Address[7]*32) + (Address[8]*64);
         Instruction <= InstructionBank[DecimalEQ]; 
     end
 
