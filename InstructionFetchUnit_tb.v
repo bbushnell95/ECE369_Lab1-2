@@ -20,30 +20,30 @@ module InstructionFetchUnit_tb();
     
     initial begin
         Clk <= 1'b0;
-        forever #10 Clk <= ~Clk;
+        forever #100 Clk <= ~Clk;
     end
     
     initial begin
         /* Please fill in the implementation here... */
         //Case 0: Reset
         Reset <= 1'b1;
-        #1 Reset <= 1'b0; $display("Instruction Fetched = %h", Instruction);
+        #70 Reset <= 1'b0; $display("Instruction Fetched = %h", Instruction);
         
         //Case 1: After 1 clock cycle
-        #10 $display("Instruction Fetched = %h", Instruction); 
+        #100 $display("Instruction Fetched = %h", Instruction); 
         
         //Case 2: Another clock cycle
-        #20 $display("Instruction Fetched = %h", Instruction);
+        #200 $display("Instruction Fetched = %h", Instruction);
         
         //Case 3: Another clock cycle
-        #20 $display("Instruction Fetched = %h", Instruction);
+        #200 $display("Instruction Fetched = %h", Instruction);
         
         //Case 4: Reset #2
-        #20 Reset <= 1'b1;
-        #1 Reset <= 1'b0;  $display("Instruction Fetched = %h", Instruction);
+        #200 Reset <= 1'b1;
+        #70 Reset <= 1'b0;  $display("Instruction Fetched = %h", Instruction);
 
         //Case 5: Another clock cycle
-        #20 $display("Instruction Fetched = %h", Instruction);
+        #200 $display("Instruction Fetched = %h", Instruction);
         
         end
         
