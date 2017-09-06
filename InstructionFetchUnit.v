@@ -2,7 +2,9 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // Team Members:
-// Overall percent effort of each team meber: 
+// Overall percent effort of each team meber:
+// Brett Bushnell -- 50%
+// Derek Mcmullen -- 50% 
 // 
 // ECE369A - Computer Architecture
 // Laboratory 3 (PostLab)
